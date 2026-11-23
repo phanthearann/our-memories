@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>អនុស្សាវរីយ៍របស់យើង</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Moulpali&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated Background Canvas -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Welcome Overlay (Required by browsers to unlock audio smoothly) -->
+  <div id="welcomeOverlay" class="welcome-overlay">
+    <div class="welcome-card">
+      <p class="subtitle">កន្លែងតូចមួយសម្រាប់ការចងចាំ</p>
+      <h1>អនុស្សាវរីយ៍របស់យើង</h1>
+      <p class="desc">បើកមើលតាមសម្រួលណា... បងធ្វើសម្រាប់អូនជាពិសេសអូនអូរី បងស្រឡាញ់អូន។</p>
+      <button id="enterBtn" class="enter-btn">បើកទំព័រអនុស្សាវរីយ៍ ✨</button>
+    </div>
+  </div>
+
+  <!-- Floating Music Control -->
+  <div class="music-player">
+    <button id="musicToggle" class="music-btn" aria-label="Toggle Music">
+      <span id="musicIcon">🎵</span>
+      <span id="musicText">កំពុងចាក់ភ្លេង</span>
+    </button>
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <header class="hero">
+      <span class="tag">សម្រាប់មនុស្សពិសេស</span>
+      <h2>គ្រប់ពេលវេលាដែលធ្លាប់មានជាមួយគ្នា</h2>
+      <p>ទោះពេលវេលាកន្លងផុតទៅ តែរាល់ការចងចាំល្អៗនៅតែមានតម្លៃជានិច្ច។</p>
+    </header>
+
+    <!-- Photo Gallery (12 Photos) -->
+    <section class="gallery-section">
+      <div class="gallery-grid" id="galleryGrid">
+        <figure class="polaroid" data-caption="ពេលវេលាសាមញ្ញ តែពោរពេញដោយស្នាមញញឹម">
+          <img src="images/photo1.jpg" alt="Memory 1" loading="lazy" />
+          <figcaption>ពេលវេលាសាមញ្ញ តែពោរពេញដោយភាពរីករាយ</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="ថ្ងៃដែលយើងបានដើរលេងជាមួយគ្នា">
+          <img src="images/photo2.jpg" alt="Memory 2" loading="lazy" />
+          <figcaption>ថ្ងៃដែលយើងបានគង្គុយលេងជាមួយគ្នា</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="រាល់ការសន្ទនាដែលធ្វើឱ្យថ្ងៃនោះមានន័យ">
+          <img src="images/photo3.jpg" alt="Memory 3" loading="lazy" />
+          <figcaption>ស្នាមញញឹមពពេញដោយសេចក្ដីសុខដែលធ្វើឱ្យថ្ងៃនោះមានន័យ</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="ស្នាមញញឹមដែលបងតែងតែចង់ឃើញ">
+          <img src="images/photo4.jpg" alt="Memory 4" loading="lazy" />
+          <figcaption>ស្នាមញញឹមដែលបងតែងតែចង់ឃើញ</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="អនុស្សាវរីយ៍ដែលមិនអាចបំភ្លេចបាន">
+          <img src="images/photo5.jpg" alt="Memory 5" loading="lazy" />
+          <figcaption>អនុស្សាវរីយ៍ដែលមិនអាចបំភ្លេចបាន</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="គ្រប់ជំហានដែលធ្លាប់ដើរក្បែរគ្នា">
+          <img src="images/photo6.jpg" alt="Memory 6" loading="lazy" />
+          <figcaption>គ្រប់ជំហានដែលធ្លាប់ដើរក្បែរគ្នា</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="ពេលល្ងាចដ៏ស្ងប់ស្ងាត់ជាមួយគ្នា">
+          <img src="images/photo7.jpg" alt="Memory 7" loading="lazy" />
+          <figcaption>ពេលល្ងាចដ៏ស្ងប់ស្ងាត់ជាមួយគ្នា</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="រូបភាពមួយសន្លឹក តែមានរឿងរ៉ាវរាប់ពាន់">
+          <img src="images/photo8.jpg" alt="Memory 8" loading="lazy" />
+          <figcaption>រូបភាពមួយសន្លឹក តែមានរឿងរ៉ាវរាប់ពាន់</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="ភាពកក់ក្តៅដែលនៅតែចងចាំ">
+          <img src="images/photo9.jpg" alt="Memory 9" loading="lazy" />
+          <figcaption>ភាពកក់ក្តៅដែលនៅតែចងចាំ</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="គ្រាដ៏រីករាយបំផុតមួយ">
+          <img src="images/photo10.jpg" alt="Memory 10" loading="lazy" />
+          <figcaption>អរគុណសម្រាប់គ្រប់យ៉ាងកន្លងមក</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="អរគុណសម្រាប់គ្រប់យ៉ាងកន្លងមក">
+          <img src="images/photo11.jpg" alt="Memory 11" loading="lazy" />
+          <figcaption>គ្រាដ៏រីករាយបំផុតមួយ</figcaption>
+        </figure>
+        <figure class="polaroid" data-caption="នៅតែរក្សាទុកក្នុងការចងចាំជានិច្ច">
+          <img src="images/photo12.jpg" alt="Memory 12" loading="lazy" />
+          <figcaption>នៅតែរក្សាទុកក្នុងការចងចាំជានិច្ច</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Sincere Note Section -->
+    <section class="letter-section">
+      <div class="letter-card">
+        <h3>ពាក្យក្នុងចិត្ត</h3>
+        <p>
+          បងធ្វើទំព័រនេះឡើង មិនមែនដើម្បីបង្ខំឱ្យអូនប្រញាប់សម្រេចចិត្តអ្វីនោះទេ។ 
+          បងដឹងថាពាក្យសម្តីតែម្យ៉ាងមិនគ្រប់គ្រាន់ឡើយ ហើយទង្វើប្រចាំថ្ងៃទើបជាអ្វីដែលសំខាន់បំផុត។
+        </p>
+        <p>
+          រយៈពេលកន្លងមកនេះ បងបានរៀនសូត្រ និងកែលម្អខ្លួនឯងច្រើនណាស់។ 
+          បងនឹងបន្តបង្ហាញតាមរយៈទង្វើពិតប្រាកដ ដោយភាពអត់ធ្មត់ និងការគោរពចំពោះអារម្មណ៍របស់អូនជានិច្ច។
+        </p>
+        <span class="signature">— ពីមនុស្សដែលតែងតែបារម្ភពីអូន</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal for Viewing Full Image -->
+  <div id="lightbox" class="lightbox">
+    <span id="closeLightbox" class="close-lightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="Full view" />
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
